@@ -8,9 +8,7 @@ services:
       - './jitsi-meet-cfg/web/crontabs:/var/spool/cron/crontabs:Z'
       - './jitsi-meet-cfg/transcripts:/usr/share/jitsi-meet/transcripts:Z'
     environment:
-      - SERVICE_FQDN_JITSI_80
-      - SERVICE_URL_JITSI
-      - PUBLIC_URL=$SERVICE_URL_JITSI
+      - PUBLIC_URL=$SERVICE_URL_JITSI_WEB
       - JITSI_IMAGE_VERSION=stable-10431
       - JIBRI_RECORDER_PASSWORD=$SERVICE_PASSWORD_JITSI
       - JIBRI_XMPP_PASSWORD=$SERVICE_PASSWORD_JITSI
@@ -49,7 +47,7 @@ services:
     environment:
       - JICOFO_AUTH_PASSWORD
       - JVB_AUTH_PASSWORD
-      - PUBLIC_URL=$SERVICE_URL_JITSI
+      - PUBLIC_URL=$SERVICE_URL_JITSI_WEB
       - TZ
       - XMPP_MUC_MODULES
     networks:
