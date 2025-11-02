@@ -17,7 +17,7 @@ services:
       - JVB_AUTH_PASSWORD=$SERVICE_PASSWORD_JITSI
       - TZ=
     labels:
-      - "traefik.docker.network=${COOLIFY_NETWORK}"
+      - "traefik.docker.network=${COOLIFY_RESOURCE_UUID}"
     networks:
       meet.jitsi:
         aliases:
