@@ -16,8 +16,6 @@ services:
       - JIGASI_XMPP_PASSWORD=$SERVICE_PASSWORD_JITSI
       - JVB_AUTH_PASSWORD=$SERVICE_PASSWORD_JITSI
       - TZ=
-    labels:
-      - traefik.docker.network=$COOLIFY_RESOURCE_UUID
     networks:
       meet.jitsi:
         aliases:
@@ -122,7 +120,9 @@ services:
       timeout: 10s
       retries: 15
 networks:
-  meet.jitsi: null
+  meet.jitsi:
+    name: ${COOLIFY_RESOURCE_UUID}
+    external: true
 volumes:
   jitsi-web: null
   jitsi-xmpp: null
